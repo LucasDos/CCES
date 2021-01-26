@@ -1,0 +1,61 @@
+.description_recherche{
+    margin-bottom: 1em;
+    font-size: 1.3em;
+}
+.description_admin_parcours{
+    margin-bottom: 1em;
+}
+.description_parcours{
+    font-weight: bold;
+}
+.btn_parcours{
+	height: 2.5em;
+	margin-top: .4em;
+	margin-bottom: 1.4em;
+}
+
+.accueil{
+    padding: 2em;
+    padding-top: 0px;
+    background-color: #EEEEEE;
+}
+
+.accueil p{
+    font-size : 21px;
+}
+
+.accueil h1{
+    color: #555555;
+    margin-top: 0em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    font-size : 4em;
+}
+
+.titre_utilisateur{
+    margin-top: 0em;
+    margin-bottom: 2em;
+    height: 7em;
+    padding: 0em;
+    padding-left: 2em;
+    background-color: #EEEEEE;
+}
+.titre_utilisateur h1{
+    color: #555555;
+    margin-top: 0em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    font-size : 4em;
+}
+
+#banniere{
+    padding-left: 1em;
+    margin-top: 0.2em;
+    margin-bottom: 0.3em;
+    color: #1f4C7E; 
+    font-size:32px;
+}
+#banniere a, #banniere a:visited{
+    color: #1f4C7E; 
+    text-decoration: none;
+}
