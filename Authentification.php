@@ -72,8 +72,7 @@
 			if (isset($_SESSION["authentificationFailure"]) && $_SESSION["authentificationFailure"]) {
 				echo "<label style='color: red;'>Échec de l'authentification</label>";
 				$_SESSION["authentificationFailure"] = false;
-			}
-			?>
+			} ?>
 
 			<input class="btn btn-primary btn-lg" type="submit" value="Se connecter">
 
