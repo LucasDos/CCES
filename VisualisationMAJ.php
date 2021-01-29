@@ -69,8 +69,10 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 			<a href="https://www.univ-tours.fr/" target="_blank"><img src="http://cces.univ-tours.fr/res/pics/utfr_logo.svg" alt="Logo de l'université François Rabelais" height="83" width="118" />
 				<span style="margin-left: 1.2em">CCES : Catalogue de Cours pour Etudiants d’Echanges</span></a>
 		</div>
+
+		<?php require_once("utils/src/header.php") ?>
 		<!--Nav Menu: top-->
-		<nav class="navbar navbar-default navbar-fixed" role="navigation" style="margin-bottom: 0em;">
+		<!--<nav class="navbar navbar-default navbar-fixed" role="navigation" style="margin-bottom: 0em;">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 					<span class="icon-bar"></span>
@@ -98,7 +100,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 					<button type="submit" onclick="goCoursPage()" class="btn btn-info" target="_blank">Vue étudiante actuelle</button>
 				</div>
 			</div>
-		</nav>
+		</nav> -->
 
 		<div class="valider">
 			<p><a href="./Cours.php" class="btn btn-primary btn-lg" role="button" onclick="moveMergedFile()">Valider<span class="glyphicon glyphicon-chevron-right"></span></a></p>
