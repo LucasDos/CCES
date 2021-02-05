@@ -54,8 +54,8 @@ if (isset($_POST["numberInformation"])) {
                         ?>
 
 
-            if (url == 'cours') {
-                window.location.href = "cours.php";
+            if (url == 'Cours') {
+                window.location.href = "Cours.php";
             } else {
                 window.location.href = "VisualisationMAJ.php";
             }
