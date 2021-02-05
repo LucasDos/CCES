@@ -48,10 +48,6 @@ if (!isset($_SESSION["authentificationSuccess"]) || isset($_SESSION["authentific
 
 <body>
     <title>Zone d'édition de la page d'accueil</title>
-    <div id="banniere">
-        <a href="https://www.univ-tours.fr/" target="_blank"><img src="./assets/images/utfr_logo.svg" alt="Logo de l'université François Rabelais" height="83" width="118"></a>
-        <span style="margin-left: 1.2em;">CCES : Catalogue de Cours pour Etudiants d’Echanges</span>
-    </div>
 
     <!-- Nav Menu: top -->
     <?php require_once('utils/header.php') ?>

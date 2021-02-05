@@ -49,10 +49,6 @@
                     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
                     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
                 <![endif]-->
-		<div id="banniere">
-			<a href="https://www.univ-tours.fr/" target="_blank"><img src="./assets/images/utfr_logo.svg" alt="Logo de l'université François Rabelais" height="83" width="118">
-				<span style="margin-left: 1.2em;">CCES : Catalogue de Cours pour Etudiants d’Echanges</span></a>
-		</div>
 
 		<!-- Nav Menu: top -->
         <?php require_once('utils/header.php') ?>
@@ -83,10 +79,7 @@
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-		<div id="banniere">
-			<a href="index.php"><img src="./assets/images/utfr_logo.svg" alt="Logo de l'université François Rabelais" height="83" width="118" />
-				<span style="margin-left: 1.2em;">CCES: Course Catalogue for Exchange Students</span></a>
-		</div>
+
 		<!--Nav Menu: top-->
 		<nav class="navbar navbar-default navbar-fixed" role="navigation" style="margin-bottom: 0em;">
 			<div class="navbar-header">
