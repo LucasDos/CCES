@@ -52,37 +52,9 @@ array_map("unlink", glob("functions/uploads/CSV/*"));
 		<a href="https://www.univ-tours.fr/" target="_blank"><img src="./assets/images/utfr_logo.svg" alt="Logo de l'université François Rabelais" height="83" width="118"></a>
 		<span style="margin-left: 1.2em;">CCES : Catalogue de Cours pour Etudiants d’Echanges</span>
 	</div>
-	<!--Nav Menu: top-->
-    <?php require_once("utils/src/header.php") ?>
-	<!--<nav class="navbar navbar-default navbar-fixed" role="navigation" style="margin-bottom: 0em;">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-		</div>
 
-		<div class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li>
-					<a href="./index.php">
-						<span class="glyphicon glyphicon-home"></span>
-					</a>
-				</li>
-				<li>
-					<a href="./modifierAccueil.php">
-						<span class="glyphicon glyphicon-edit"></span> Modifier Page d'accueil
-					</a>
-				</li>
-				<li>
-					<a href="./logs.php">
-						<span class="glyphicon glyphicon-search"></span> Statistiques
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav>--><!-- Fin Nav : Menu top -->
+	<!-- Nav Menu: top -->
+    <?php require_once("utils/header.php") ?>
 
 	<div style="float: right;">
 		<p></p>

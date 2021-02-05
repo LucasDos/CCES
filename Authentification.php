@@ -39,24 +39,8 @@
 			<span style="margin-left: 1.2em;">CCES : Catalogue de Cours pour Etudiants d’Echanges</span></a>
 	</div>
 
-    <?php require_once("utils/src/header.php") ?>
-    <!--<nav class="navbar navbar-default navbar-fixed" role="navigation" style="margin-bottom: 0em;">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-		</div>
-		<div class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li> <a href="Accueil.php"><span class="glyphicon glyphicon-home"></span></a> </li>
-
-				<div class="navbar-collapse collapse">
-				</div>
-
-		</div>
-	</nav>-->
+    <!--Nav Menu: top-->
+    <?php require_once("utils/header.php") ?>
 
 	<div id="container">
 		<form action="Depot.php" method="POST">

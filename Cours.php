@@ -40,56 +40,10 @@
             <a href="https://www.univ-tours.fr/" target="_blank"><img src="http://cces.univ-tours.fr/res/pics/utfr_logo.svg" alt="Logo de l'université François Rabelais" height="83" width="118" />
                 <span style="margin-left: 1.2em;">CCES : Catalogue de Cours pour Etudiants d'Echanges</span></a>
         </div>
-        <!--Nav Menu: top-->
-        <?php require_once("utils/src/header.php") ?>
-        <!--<nav class="navbar navbar-default navbar-fixed" role="navigation" style="margin-bottom: 0em;">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li> <a href="Accueil.php"><span class="glyphicon glyphicon-home"></span></a> </li>
-                    <li>
-                        <a href="Cours.php">
-                            <span class="glyphicon glyphicon-search"></span>
-                            Cours </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Langue <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="?language=FR">Français</a></li>
-                            <li><a href="?language=EN">Anglais</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="navbar-collapse collapse">
-                    <div class="form-group navbar-right navbar-form">
-                        <a class="dropdown-toggle" data-toggle="collapse" data-target="#myList"><span class="glyphicon glyphicon-briefcase" style="color:white;font-size:35px" id="basket" onclick="stopAnimation()"></span></a>
-                        <div id="myList" class="dropdown-menu">
-                            <nav class="navbar navbar-light">
-                                <li class="nav-item">
-                                    <span class="navbar-brand">Votre Panier</span>
-                                    <span class="navbar-text">
-                                        Total ECTS <span class="badge badge-light" id="basket-ECTS"></span>
-                                    </span>
-                                </li>
-                            </nav>
-                            <div id="basket-content"></div>
-                            <div align="center">
-                                <button onClick="emptyBasket();" class="btn btn-primary btn-sm">Vider</button>
-                                <button onClick="exportBasket();" class="btn btn-primary btn-sm">Exporter</button>
-                                <a class="dropdown-toggle" data-toggle="collapse" data-target="#myList"><button class="btn btn-primary btn-sm">Fermer</button></a>
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>-->
+        <!-- Nav Menu: top -->
+        <?php require_once("utils/header.php") ?>
+
         <table id="courseTable" style="width:100%">
             <thead>
                 <tr>
