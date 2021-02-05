@@ -134,58 +134,9 @@
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <div id="banniere">
-            <a href="https://www.univ-tours.fr/" target="_blank"><img src="http://cces.univ-tours.fr/res/pics/utfr_logo.svg" alt="Logo de l'université François Rabelais" height="83" width="118" />
-                <span style="margin-left: 1.2em;">CCES: Course Catalogue for Exchange Students</span></a>
-        </div>
-        <!--Nav Menu: top-->
-        <nav class="navbar navbar-default navbar-fixed" role="navigation" style="margin-bottom: 0em;">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li> <a href="Accueil.php"><span class="glyphicon glyphicon-home"></span></a> </li>
-                    <li>
-                        <a href="Cours.php">
-                            <span class="glyphicon glyphicon-search"></span>
-                            Search Courses </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Language <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="?language=FR">French</a></li>
-                            <li><a href="?language=EN">English</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="navbar-collapse collapse">
-                    <div class="form-group navbar-right navbar-form">
-                        <a class="dropdown-toggle" data-toggle="collapse" data-target="#myList"><span class="glyphicon glyphicon-briefcase" style="color:white;font-size:35px" id="basket" onclick="stopAnimation()"></span></a>
-                        <div id="myList" class="dropdown-menu">
-                            <nav class="navbar navbar-light">
-                                <li class="nav-item">
-                                    <span class="navbar-brand">Your Basket</span>
-                                    <span class="navbar-text">
-                                        Total Credits <span class="badge badge-light" id="basket-ECTS"></span>
-                                    </span>
-                                </li>
-                            </nav>
-                            <div id="basket-content"></div>
-                            <div align="center">
-                                <button onClick="emptyBasket();" class="btn btn-primary btn-sm">Empty</button>
-                                <button onClick="exportBasket();" class="btn btn-primary btn-sm">Export</button>
-                                <a class="dropdown-toggle" data-toggle="collapse" data-target="#myList"><button class="btn btn-primary btn-sm">Close</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+
+        <?php require_once('utils/header.php') ?>
+
         <table id="courseTable" style="width:100%">
             <thead>
                 <tr>

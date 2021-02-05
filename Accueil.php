@@ -81,41 +81,8 @@
         <![endif]-->
 
 		<!--Nav Menu: top-->
-		<nav class="navbar navbar-default navbar-fixed" role="navigation" style="margin-bottom: 0em;">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li> <a href="./index.php"><span class="glyphicon glyphicon-home"></span></a> </li>
-					<li>
-						<a href="./cours.php">
-							<span class="glyphicon glyphicon-search"></span>
-							Courses</a>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Language <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="?language=FR">French</a></li>
-							<li><a href="?language=EN">English</a></li>
-						</ul>
-					</li>
-				</ul>
+        <?php require_once('utils/header.php') ?>
 
-				<div class="navbar-collapse collapse">
-
-
-					<div class="form-group navbar-right navbar-form">
-						<button type="submit" onClick="self.location='./Authentification.php'" class="btn btn-info"><span class="glyphicon glyphicon-lock"></span></button>
-					</div>
-
-				</div>
-			</div>
-		</nav><!-- Fin Nav : Menu top -->
 		<div class="accueil other-color en">
 			<?php include("./functions/uploads/HTML/AccueilContentEN.html"); ?>
 			<p><a href="./cours.php" class="btn btn-primary btn-lg" role="button">Start<span class="glyphicon glyphicon-chevron-right"></span></a></p>
