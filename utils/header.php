@@ -8,6 +8,11 @@
 
 ?>
 
+<div id="banniere">
+    <a href="https://www.univ-tours.fr/" target="_blank"><img src="./assets/images/utfr_logo.svg" alt="Logo de l'université François Rabelais" height="83" width="118">
+        <span style="margin-left: 1.2em;">CCES : Catalogue de Cours pour Etudiants d’Echanges</span></a>
+</div>
+
 <?php switch ($currentPage) {
     case "Accueil":
 ?>
