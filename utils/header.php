@@ -1,5 +1,7 @@
 <?php
-    define('currentURL', $_SERVER['PHP_SELF'], true);
+    define('currentURL', $_SERVER['PHP_SELF']);
+
+    $test = $_SERVER['PHP_SELF'];
 
     // Get current page
     $currentPageURL = explode('.php', currentURL);
@@ -13,8 +15,6 @@
     }
 ?>
 
-
-<!-- Univ banner -->
 <?php if($lang == "FR" || $lang == "NO") { ?>
 <div id="banniere">
     <a href="https://www.univ-tours.fr/" target="_blank"><img src="./assets/images/utfr_logo.svg" alt="Logo de l'université François Rabelais" height="83" width="118">
