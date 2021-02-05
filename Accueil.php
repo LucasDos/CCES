@@ -54,7 +54,8 @@
 				<span style="margin-left: 1.2em;">CCES : Catalogue de Cours pour Etudiants d’Echanges</span></a>
 		</div>
 		<!--Nav Menu: top-->
-		<nav class="navbar navbar-default navbar-fixed" role="navigation" style="margin-bottom: 0em;">
+        <?php require_once('utils/src/header.php') ?>
+		<!--<nav class="navbar navbar-default navbar-fixed" role="navigation" style="margin-bottom: 0em;">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 					<span class="icon-bar"></span>
@@ -103,7 +104,7 @@
 				</div>
 
 			</div>
-		</nav><!-- Fin Nav : Menu top -->
+		</nav>--><!-- Fin Nav : Menu top -->
 
 		<div class="accueil other-color fr">
 			<?php include("./functions/uploads/HTML/AccueilContentFR.html"); ?>
