@@ -108,7 +108,7 @@
                                     $j++;
                                     echo "<input type='hidden' name='numberInformation' value='$j' />";
                                     echo "</form>";
-                                    echo "<td align=center>" . "<a href='#' onclick='document.getElementById(\"allInformation$i\").submit()'>" . "<img src='assets/images/afficher.png'/>" . "</a>" . "</td>";
+                                    echo "<td align=center>" . "<a href='#' onclick='document.getElementById(\"allInformation$i\").submit()'>" . "<img src='assets/images/loupe.png'/>" . "</a>" . "</td>";
 
                                     echo "<td align=center>" . "<button class='btn btn-primary btn-sm' id='$id' onclick=\"addCourse('$id','$line[6]','$line[7]','$line[8]','$line[23]','$line[1]','$line[3]');stopAnimation();startAnimation();\">+</button>" . "</td>";
                                     $id++;
@@ -207,7 +207,7 @@
                                     $j++;
                                     echo "<input type='hidden' name='numberInformation' value='$j' />";
                                     echo "</form>";
-                                    echo "<td align=center>" . "<a href='#' onclick='document.getElementById(\"allInformation$i\").submit()'>" . "<img src='assets/images/afficher.png'/>" . "</a>" . "</td>";
+                                    echo "<td align=center>" . "<a href='#' onclick='document.getElementById(\"allInformation$i\").submit()'>" . "<img src='assets/images/loupe.png'/>" . "</a>" . "</td>";
 
                                     echo "<td align=center>" . "<button class='btn btn-primary btn-sm' id='$id' onclick=\"addCourse('$id','$line[6]','$line[7]','$line[9]','$line[23]','$line[2]','$line[4]');stopAnimation();startAnimation();\">+</button>" . "</td>";
                                     $id++;
