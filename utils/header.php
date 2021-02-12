@@ -1,7 +1,11 @@
 <?php
-    define('currentURL', $_SERVER['PHP_SELF']);
+    if(isset($_SESSION['type']) && $_SESSION['type'] == 'ADM'){
+        $isSession = true;
+    } else {
+        $isSession = false;
+    }
 
-    $test = $_SERVER['PHP_SELF'];
+    define('currentURL', $_SERVER['PHP_SELF']);
 
     // Get current page
     $currentPageURL = explode('.php', currentURL);
@@ -48,17 +52,20 @@
             <li><a href="?language=EN"><img alt="English" title="English" src="/CCES/utils/images/english-flag.svg" style="width: 20px;"></a></li>
         </ul>
 
-            <?php if($currentPage == "Accueil") { ?>
+
+            <?php if(($currentPage == "Accueil") || ($currentPage == "VisualisationMAJ")) { ?>
                 <div class="form-group navbar-right navbar-form">
-                    <?php if (isset($_SESSION["authentificationSuccess"]) && $_SESSION["authentificationSuccess"]) { ?>
-                        <button type="submit" onclick="self.location='./Depot.php'" class="btn btn-info"><span class="glyphicon glyphicon-lock"></span></button>
-                    <?php } else { ?>
-                        <button type="submit" onclick="self.location='./Authentification.php'" class="btn btn-info"><span class="glyphicon glyphicon-lock"></span></button>
-                    <?php } ?>
-                </div>
-            <?php } elseif($currentPage == "VisualisationMAJ") { ?>
-                <div class="form-group navbar-right navbar-form">
+                    <button type="submit" onclick="self.location='./Authentification.php'" class="btn btn-info">
+                        <?php if(!$isSession) { ?>
+                            <span class="glyphicon glyphicon-lock"></span>
+                        <?php } else { ?>
+                            <span class="glyphicon glyphicon-off"></span>
+                        <?php } ?>
+                    </button>
+
+                <?php if($currentPage == "VisualisationMAJ") { ?>
                     <button type="submit" onclick="goCoursPage()" class="btn btn-info" target="_blank"> Vue étudiante actuelle </button>
+                <?php } ?>
                 </div>
             <?php } else { ?>
                 <div class="navbar-collapse collapse">
@@ -92,8 +99,17 @@
             <li><a href="./modifierAccueil.php"><span class="glyphicon glyphicon-edit"></span> Modifier Page d'accueil </a></li>
             <li><a href="./logs.php"><span class="glyphicon glyphicon-search"></span> Statistiques </a></li>
         </ul>
-        <?php } ?>
 
+            <div class="form-group navbar-right navbar-form">
+                <button type="submit" onclick="self.location='./Authentification.php'" class="btn btn-info">
+                    <?php if(!$isSession) { ?>
+                        <span class="glyphicon glyphicon-lock"></span>
+                    <?php } else { ?>
+                        <span class="glyphicon glyphicon-off"></span>
+                    <?php } ?>
+                </button>
+            </div>
+        <?php } ?>
     </div>
 </nav>
 
