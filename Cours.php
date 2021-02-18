@@ -24,7 +24,11 @@
 
 </head>
 
+
+
 <body onload="echoBasket()">
+
+
     <?php
     require_once('./functions/import.php');
     returnPage('cours');
@@ -79,7 +83,7 @@
                 </tr>
             </thead>
             <tbody>
-        <?php
+                <?php
                             $id = 0;
                             $i = 0;
                             while ($data = fgetcsv($handle)) {
@@ -111,10 +115,13 @@
                                     $j++;
                                     echo "<input type='hidden' name='numberInformation' value='$j' />";
                                     echo "</form>";
+
                                     //echo "<td align=center>" . "<a href='#' onclick='document.getElementById(\"allInformation$i\").submit()'>" . "<img src='assets/images/afficher.png'/>" . "</a>" . "</td>";
                                     //echo "<td align=center>" . "<a href='#' onclick='testX($i); document.getElementById(\"allInformation$i\").submit(); echo \$_SESSION[\"allInformation\"];'>" . "<img src='assets/images/afficher.png'/>" . "</a>" . "</td>";
-                                    echo "<td align=center>" . "<a href='#modal1' class='js-modal'>" . "<img src='assets/images/afficher.png'/>" . "</a>" . "</td>";
-
+                                    //echo "<td align=center>" . " <a href=\"#modal1\" class=\"js-modal\">" . "<img src='assets/images/afficher.png'/>" . "</a>" . "</td>";
+                                    ?>
+                                    <td align=center> <a href="#modal1" class="js-modal" onclick="document.getElementById('allInformation5')">test</a></td>
+                                    <?php
                                     echo "<td align=center>" . "<button class='btn btn-primary btn-sm' id='$id' onclick=\"addCourse('$id','$line[6]','$line[7]','$line[8]','$line[23]','$line[1]','$line[3]');stopAnimation();startAnimation();\">+</button>" . "</td>";
                                     $id++;
                                 }
@@ -132,8 +139,13 @@
 
 
         </div>
+
+
+
         <script type="text/javascript" src="./assets/tablefilter/tablefilter.js"></script>
         <script type="text/javascript" src="./assets/js/coursTableFilterRenderingFR.js"></script>
+        <script type="text/javascript" src="./assets/js/modal.js"></script>
+
     <?php } else { ?>
         <title>Search for a course</title>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -246,8 +258,15 @@
     <!-- Modal -->
     <aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="title-modal" style="display: none;">
         <div class="modal-wrapper js-modal-stop">
+
+            <?php
+            echo "<pre>";
+            print_r($_SESSION);
+            echo "</pre>";
+            ?>
             <button class="js-modal-close">Fermer</button>
             <h1 id="title-modal">TEST</h1>
+            <p>PWET : <?php echo $_SESSION["allInformation"][3] ?></p>
             <p>With a warning label this big, you know they gotta be fun! I meant 'physically'. Look, perhaps you could let me work for a little food? I could clean the floors or paint a fence, or service you sexually?</p>
             <p>Soon enough. Guess again. I'm just glad my fat, ugly mama isn't alive to see this day. You, minion. <strong> Lift my arm.</strong> <em> AFTER HIM!</em> And until then, I can never die?</p>
             <h2>Belligerent and numerous.</h2>
@@ -273,6 +292,7 @@
         </div>
 
     </aside>
+
 </body>
 
 </html>
