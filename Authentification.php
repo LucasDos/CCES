@@ -31,13 +31,6 @@
 
 </head>
 
-<?php
-    if(isset($_SESSION['type']) && $_SESSION['type'] == 'ADM') {
-        session_unset();
-        session_destroy();
-    }
-?>
-
 <body>
 	<title>Authentification</title>
 
@@ -50,20 +43,17 @@
 			<h1>Connexion</h1>
 
 			<label><b>Identifiant</b></label>
-
 			<input type="text" placeholder="Entrez le nom d'utilisateur" name="username" required>
 
 			<label><b>Mot de passe</b></label>
 			<input type="password" placeholder="Entrez le mot de passe" name="password" required>
 
 			<?php
-                session_start();
-                if (isset($_SESSION["authentificationFailure"]) && $_SESSION["authentificationFailure"]) {
-                    echo "<label style='color: red;'>Échec de l'authentification</label>";
-                    $_SESSION["authentificationFailure"] = false;
-                }
-                $_SESSION['type'] = "ADM";
-			?>
+			session_start();
+			if (isset($_SESSION["authentificationFailure"]) && $_SESSION["authentificationFailure"]) {
+				echo "<label style='color: red;'>Échec de l'authentification</label>";
+				$_SESSION["authentificationFailure"] = false;
+			} ?>
 
 			<input class="btn btn-primary btn-lg" type="submit" value="Se connecter">
 
