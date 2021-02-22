@@ -98,7 +98,7 @@
                                     echo "<td>" . $line[1] . "</td>";
                                     echo "<td>" . $line[3] . "</td>";
                                     echo "<td>" . $line[10] . "</td>";
-                                    echo "<td>" . $line[11] . "</td>";
+                                    echo "<td>" . substr($line[11], 0,100)."..." . "</td>";
                                     echo "<td>" . $line[7] . "</td>";
                                     echo "<td>" . $line[23] . "</td>";
 
@@ -197,7 +197,7 @@
                                     echo "<td>" . $line[2] . "</td>";
                                     echo "<td>" . $line[4] . "</td>";
                                     echo "<td>" . str_replace($fr_language, $en_languge, strtolower($line[10])) . "</td>";
-                                    echo "<td>" . $line[12] . "</td>";
+                                    echo "<td>" . substr($line[12], 0, 100) . "..." . "</td>";
                                     echo "<td>" . $line[7] . "</td>";
                                     echo "<td>" . $line[23] . "</td>";
 

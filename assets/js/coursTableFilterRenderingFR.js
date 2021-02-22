@@ -2,6 +2,9 @@ var filtersConfig = {
     // instruct TableFilter location to import ressources from
     base_path: 'assets/tablefilter/',
     help_instructions: false,
+    paging: {
+        results_per_page: ['Nombre de cours par page :', [10, 25, 50, 100]]
+    },
     col_2: 'select',
     col_3: 'select',
     col_4: 'select',
@@ -33,7 +36,7 @@ var filtersConfig = {
     extensions: [{
         name: 'sort',
         types: ['string', 'string', 'string', 'string', 'numeric', 'numeric', 'none', 'none']
-    }]
+    }],
 };
 var tf = new TableFilter('courseTable', filtersConfig);
 tf.init();
