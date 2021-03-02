@@ -1,3 +1,62 @@
+/** Load Data Course */
+window.onload = init();
+
+function init() {
+    $.ajax({
+        url: './functions/infosCourses.php',
+        type: 'post',
+        success: function (data) {
+            let cours = parseInt(data);
+
+            // Nb Cours
+            document.getElementById("nb-cours").innerHTML += cours;
+
+            // Nb Pages
+            document.getElementById("nb-page").innerHTML = Math.ceil(cours/50);
+
+        }
+    });
+
+    loadData("1");
+}
+
+function previousPage() {
+    let currentPage = document.getElementById("current-page").innerText;
+    currentPage--;
+    if(currentPage > 0){
+        loadData(currentPage.toString());
+    }
+
+}
+
+function nextPage() {
+    let currentPage = document.getElementById("current-page").innerText;
+    currentPage++;
+    if(currentPage <= parseInt(document.getElementById("nb-page").innerText)){
+        loadData(currentPage.toString());
+    }
+
+}
+
+function loadData(page){
+    $.ajax({
+        url: './functions/loadData.php',
+        data: {
+            page : page
+        },
+        type: 'post',
+        success: function (data) {
+            document.getElementById("test").innerHTML = data;
+            document.getElementById("current-page").innerHTML = page;
+            var tf = new TableFilter('test', filtersConfig);
+            tf.init();
+
+        }
+    });
+}
+
+
+/** Student */
 function computeECTS() {
     $.ajax({
         url: './functions/basket.php',

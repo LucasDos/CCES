@@ -40,89 +40,21 @@
         <!-- Nav Menu: top -->
         <?php require_once("utils/header.php") ?>
 
-        <table id="courseTable" style="width:100%">
-            <thead>
-                <tr>
-                    <?php
-                    if (file_exists("./MergedFile.csv")) {
+        <div class="table-nav" style="display: flex; flex-direction: row; justify-content: space-between; margin: 2px 0 2px 0;">
+            <span id="nb-cours"> Nombre de cours : </span>
+            <button onclick="previousPage()"> Previous page </button>
 
-                        $fileName = "./MergedFile.csv";
+            <button onclick="nextPage()"> Next page </button>
 
-                        if ($file = file_get_contents($fileName)) {
-                            $file = str_replace('";"', "';'", $file);
-                            file_put_contents($fileName, $file);
-                        }
+            <div class="vis-pages">
+                <span> Page: </span>
+                <span id="current-page"></span>
+                <span > / </span>
+                <span id="nb-page"></span>
+            </div>
+        </div>
+        <table id="test" style="width: 100%;"></table>
 
-                        if ($file = file_get_contents($fileName)) {
-                            $file = str_replace('";"', "';'", $file);
-                            file_put_contents($fileName, $file);
-                        }
-
-                        if ($handle = fopen($fileName, "r")) {
-                            $data = fgetcsv($handle);
-                            $line = explode("';'", $data[0]);
-                            echo "<th>" . $line[6] . "</th>";
-                            echo "<th>" . "Intitulé du cours" . "</th>";
-                            echo "<th>" . "Niveau" . "</th>";
-                            echo "<th>" . "Composante" . "</th>";
-                            echo "<th>" . "Filière" . "</th>";
-                            echo "<th>" . "Langue" . "</th>";
-                            echo "<th>" . "Descriptif" . "</th>";
-                            echo "<th>" . "Crédits ECTS" . "</th>";
-                            echo "<th>" . "Semestre" . "</th>";
-                            echo "<th>" . "Détails" . "</th>";
-                            echo "<th>" . "Ajout panier" . "</th>";
-                    ?>
-                </tr>
-            </thead>
-            <tbody>
-        <?php
-                            $id = 0;
-                            $i = 0;
-                            while ($data = fgetcsv($handle)) {
-                                echo "<tr>";
-                                $line = explode("';'", $data[0]);
-
-                                if ($line[17] == "")
-                                    $line[17] = 0;
-
-                                $emptyElements = 0;
-                                foreach ($line as $value)
-                                    if (empty($value))
-                                        $emptyElements++;
-
-                                if ($emptyElements != count($line)) {
-                                    echo "<td>" . $line[6] . "</td>";
-                                    echo "<td>" . $line[8] . "</td>";
-                                    echo "<td>" . $line[22] . "</td>";
-                                    echo "<td>" . $line[1] . "</td>";
-                                    echo "<td>" . $line[3] . "</td>";
-                                    echo "<td>" . $line[10] . "</td>";
-                                    echo "<td>" . substr($line[11], 0,100)."..." . "</td>";
-                                    echo "<td>" . $line[7] . "</td>";
-                                    echo "<td>" . $line[23] . "</td>";
-
-                                    echo "<form id='allInformation$i' action='CoursInfo.php' method='POST'>";
-                                    for ($j = 0; $j < count($line); $j++)
-                                        echo "<input type='hidden' name='information$j' value='$line[$j]' />";
-                                    $j++;
-                                    echo "<input type='hidden' name='numberInformation' value='$j' />";
-                                    echo "</form>";
-                                    echo "<td align=center>" . "<a href='#' onclick='document.getElementById(\"allInformation$i\").submit()'>" . "<img alt='detail-fr' title='détail' src='assets/images/loupe.png'/>" . "</a>" . "</td>";
-
-                                    echo "<td align=center>" . "<button class='btn btn-primary btn-sm' id='$id' onclick=\"addCourse('$id','$line[6]','$line[7]','$line[8]','$line[23]','$line[1]','$line[3]');stopAnimation();startAnimation();\">+</button>" . "</td>";
-                                    $id++;
-                                }
-                                echo "</tr>";
-
-                                $i++;
-                            }
-                            fclose($handle);
-                        }
-                    }
-        ?>
-            </tbody>
-        </table>
         </div>
         <script type="text/javascript" src="./assets/tablefilter/tablefilter.js"></script>
         <script type="text/javascript" src="./assets/js/coursTableFilterRenderingFR.js"></script>
