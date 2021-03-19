@@ -120,13 +120,46 @@
                                     //echo "<td align=center>" . "<a href='#' onclick='testX($i); document.getElementById(\"allInformation$i\").submit(); echo \$_SESSION[\"allInformation\"];'>" . "<img src='assets/images/afficher.png'/>" . "</a>" . "</td>";
                                     //echo "<td align=center>" . " <a href=\"#modal1\" class=\"js-modal\">" . "<img src='assets/images/afficher.png'/>" . "</a>" . "</td>";
                                     ?>
-                                    <td align=center> <a href="#modal1" class="js-modal" onclick="document.getElementById('allInformation5')">test</a></td>
+                                    <td align=center> <a><img href="#modal<?php echo $i;?>" class="js-modal"  style="cursor: pointer;" src='assets/images/afficher.png'/></a></td>
                                     <?php
                                     echo "<td align=center>" . "<button class='btn btn-primary btn-sm' id='$id' onclick=\"addCourse('$id','$line[6]','$line[7]','$line[8]','$line[23]','$line[1]','$line[3]');stopAnimation();startAnimation();\">+</button>" . "</td>";
                                     $id++;
                                 }
                                 echo "</tr>";
 
+                                ?>
+                                <!-- Modal -->
+                                <aside id="modal<?php echo $i;?>" class="modal" aria-hidden="true" role="dialog" aria-labelledby="title-modal" style="display: none;">
+                                    <div class="modal-wrapper js-modal-stop">
+                                        <button class="js-modal-close">Fermer</button>
+                                        <h1 id="title-modal"><?php echo $line[8] ?></h1>
+                                        <p>PWET : <?php print_r($line) ?></p>
+                                        <p>With a warning label this big, you know they gotta be fun! I meant 'physically'. Look, perhaps you could let me work for a little food? I could clean the floors or paint a fence, or service you sexually?</p>
+                                        <p>Soon enough. Guess again. I'm just glad my fat, ugly mama isn't alive to see this day. You, minion. <strong> Lift my arm.</strong> <em> AFTER HIM!</em> And until then, I can never die?</p>
+                                        <h2>Belligerent and numerous.</h2>
+                                        <p>Too much work. Let's burn it and say we dumped it in the sewer. You can see how I lived before I met you. That could be 'my' beautiful soul sitting naked on a couch. If I could just learn to play this stupid thing.</p>
+                                        <ol>
+
+                                            <li>The alien mothership is in orbit here. If we can hit that bullseye, the rest of the dominoes will fall like a house of cards. Checkmate.</li>
+                                            <li>No, she'll probably make me do it.</li>
+                                            <li>And from now on you're all named Bender Jr.</li>
+
+                                        </ol>
+
+                                        <h3>Take me to your leader!</h3>
+                                        <p>This opera's as lousy as it is brilliant! Your lyrics lack subtlety. You can't just have your characters announce how they feel. That makes me feel angry! Do a flip! Yes, I saw. You were doing well, until everyone died.</p>
+                                        <ul>
+
+                                            <li>I love this planet! I've got wealth, fame, and access to the depths of sleaze that those things bring.</li>
+                                            <li>Now Fry, it's been a few years since medical school, so remind me. Disemboweling in your species: fatal or non-fatal?</li>
+                                            <li>That's the ONLY thing about being a slave.</li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </aside>
+                                <?php
                                 $i++;
                             }
                             fclose($handle);
@@ -255,43 +288,7 @@
     <?php } ?>
 
 
-    <!-- Modal -->
-    <aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="title-modal" style="display: none;">
-        <div class="modal-wrapper js-modal-stop">
-
-            <?php
-            echo "<pre>";
-            print_r($_SESSION);
-            echo "</pre>";
-            ?>
-            <button class="js-modal-close">Fermer</button>
-            <h1 id="title-modal">TEST</h1>
-            <p>PWET : <?php echo $_SESSION["allInformation"][3] ?></p>
-            <p>With a warning label this big, you know they gotta be fun! I meant 'physically'. Look, perhaps you could let me work for a little food? I could clean the floors or paint a fence, or service you sexually?</p>
-            <p>Soon enough. Guess again. I'm just glad my fat, ugly mama isn't alive to see this day. You, minion. <strong> Lift my arm.</strong> <em> AFTER HIM!</em> And until then, I can never die?</p>
-            <h2>Belligerent and numerous.</h2>
-            <p>Too much work. Let's burn it and say we dumped it in the sewer. You can see how I lived before I met you. That could be 'my' beautiful soul sitting naked on a couch. If I could just learn to play this stupid thing.</p>
-            <ol>
-
-                <li>The alien mothership is in orbit here. If we can hit that bullseye, the rest of the dominoes will fall like a house of cards. Checkmate.</li>
-                <li>No, she'll probably make me do it.</li>
-                <li>And from now on you're all named Bender Jr.</li>
-
-            </ol>
-
-            <h3>Take me to your leader!</h3>
-            <p>This opera's as lousy as it is brilliant! Your lyrics lack subtlety. You can't just have your characters announce how they feel. That makes me feel angry! Do a flip! Yes, I saw. You were doing well, until everyone died.</p>
-            <ul>
-
-                <li>I love this planet! I've got wealth, fame, and access to the depths of sleaze that those things bring.</li>
-                <li>Now Fry, it's been a few years since medical school, so remind me. Disemboweling in your species: fatal or non-fatal?</li>
-                <li>That's the ONLY thing about being a slave.</li>
-
-            </ul>
-
-        </div>
-
-    </aside>
+    
 
 </body>
 

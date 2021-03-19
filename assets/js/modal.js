@@ -6,6 +6,7 @@ const openModal = function(e){
     target.style.display = "flex";
     target.removeAttribute('aria-hidden');
     target.setAttribute('aria-modal', 'true');
+    console.log(target);
     modal = target;
     modal.addEventListener('click', closeModal);
     modal.querySelector('.js-modal-close').addEventListener('click',closeModal);
