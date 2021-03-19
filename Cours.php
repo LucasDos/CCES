@@ -40,8 +40,9 @@
         <!-- Nav Menu: top -->
         <?php require_once("utils/header.php") ?>
 
+        <!-- Nav tab -->
         <div class="table-nav" style="display: flex; flex-direction: row; justify-content: space-between; margin: 2px 0 2px 0;">
-            <span id="nb-cours"> Nombre de cours : </span>
+            <span> Nombre de cours : <span id="nb-cours"></span></span>
             <button onclick="previousPage()"> Previous page </button>
 
             <button onclick="nextPage()"> Next page </button>

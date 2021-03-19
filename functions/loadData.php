@@ -4,8 +4,26 @@ $page = intval($_POST["page"]);
 
 loadPage($fileName, $page);
 
+function getNbCourses($fileName){
+    if (file_exists($fileName)) {
+        if ($handle = fopen($fileName, "r")) {
+            $i = 0;
+            while($data = fgetcsv($handle)){
+                $i++;
+            }
+        }
+        $i--;
+
+        fclose($handle);
+
+        return $i;
+    }
+}
+
 function loadPage($fileName, $page){
     $nbCourses = $page * 50;
+    echo getNbCourses($fileName);
+
     if (file_exists($fileName)) {
         // HEAD
 

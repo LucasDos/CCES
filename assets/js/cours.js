@@ -1,24 +1,24 @@
 /** Load Data Course */
-window.onload = init();
+window.onload = loadData("1");
 
-function init() {
-    $.ajax({
-        url: './functions/infosCourses.php',
-        type: 'post',
-        success: function (data) {
-            let cours = parseInt(data);
-
-            // Nb Cours
-            document.getElementById("nb-cours").innerHTML += cours;
-
-            // Nb Pages
-            document.getElementById("nb-page").innerHTML = Math.ceil(cours/50);
-
-        }
-    });
-
-    loadData("1");
-}
+// function init() {
+//     $.ajax({
+//         url: './functions/infosCourses.php',
+//         type: 'post',
+//         success: function (data) {
+//             let cours = parseInt(data);
+//
+//             // Nb Cours
+//             document.getElementById("nb-cours").innerHTML += cours;
+//
+//             // Nb Pages
+//             document.getElementById("nb-page").innerHTML = Math.ceil(cours/50);
+//
+//         }
+//     });
+//
+//     loadData("0");
+// }
 
 function previousPage() {
     let currentPage = document.getElementById("current-page").innerText;
@@ -46,13 +46,31 @@ function loadData(page){
         },
         type: 'post',
         success: function (data) {
-            document.getElementById("test").innerHTML = data;
+            let parsedData = getNbPage(data);
+            let nbCourses = parseInt(parsedData[0]);
+            let tab = parsedData[1];
+
+            // Nb Cours
+            document.getElementById("nb-cours").innerHTML = nbCourses;
+
+            // Nb Pages
+            document.getElementById("nb-page").innerHTML = Math.ceil(nbCourses/50);
+
+            // Load tab
+            document.getElementById("test").innerHTML = tab;
             document.getElementById("current-page").innerHTML = page;
             var tf = new TableFilter('test', filtersConfig);
             tf.init();
 
         }
     });
+}
+
+function getNbPage(data) {
+    let nbCourses = data.split("<", 1);
+    let cleanData = data.replace(nbCourses, "");
+
+    return [nbCourses, cleanData];
 }
 
 
