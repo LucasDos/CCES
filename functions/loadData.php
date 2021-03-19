@@ -5,6 +5,7 @@ $language = $_POST["language"];
 
 loadPage($fileName, $page, $language);
 
+/** Get number of courses */
 function getNbCourses($fileName){
     if (file_exists($fileName)) {
         if ($handle = fopen($fileName, "r")) {
@@ -21,6 +22,7 @@ function getNbCourses($fileName){
     }
 }
 
+/** Send data to courses page */
 function loadPage($fileName, $page, $language){
     $nbCourses = $page * 50;
     echo getNbCourses($fileName);
@@ -32,6 +34,7 @@ function loadPage($fileName, $page, $language){
         }
 
         if ($handle = fopen($fileName, "r")) {
+            // Check language
             if($language == "FR") {
                 // Header tab
                 $data = fgetcsv($handle);
@@ -111,6 +114,7 @@ function loadPage($fileName, $page, $language){
 
                 fclose($handle);
             } else {
+                // English tab
                 // Header tab
                 $data = fgetcsv($handle);
                 $line = explode("';'", $data[0]);

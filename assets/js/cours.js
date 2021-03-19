@@ -4,6 +4,7 @@ window.onload = getSessionLanguage().then(res => {
     loadData("1", res);
 });
 
+/** Get current language of user by controller */
 function getSessionLanguage() {
     let lang = "";
     return $.ajax({
@@ -12,10 +13,12 @@ function getSessionLanguage() {
     });
 }
 
+/** Get current language of user by input hidden */
 function getInputLanguage() {
     return document.getElementById("language").value;
 }
 
+/** Go to previous page of the tablefilter */
 function previousPage(element) {
     let currentPage = parseInt(element.innerText);
     currentPage--;
@@ -25,6 +28,7 @@ function previousPage(element) {
 
 }
 
+/** Go to next page of the tablefilter */
 function nextPage(element) {
     let currentPage = parseInt(element.innerText);
     let lang = getInputLanguage();
@@ -40,6 +44,15 @@ function nextPage(element) {
     }
 }
 
+/** Get nbPage and courses */
+function getData(data) {
+    let nbCourses = data.split("<", 1);
+    let cleanData = data.replace(nbCourses, "");
+
+    return [nbCourses, cleanData];
+}
+
+/** Load data into tablefilter */
 function loadData(page, language){
     console.log(language);
     $.ajax({
@@ -50,7 +63,7 @@ function loadData(page, language){
         },
         type: 'post',
         success: function (data) {
-            let parsedData = getNbPage(data);
+            let parsedData = getData(data);
             let nbCourses = parseInt(parsedData[0]);
             let tab = parsedData[1];
 
@@ -83,13 +96,6 @@ function loadData(page, language){
             }
         }
     });
-}
-
-function getNbPage(data) {
-    let nbCourses = data.split("<", 1);
-    let cleanData = data.replace(nbCourses, "");
-
-    return [nbCourses, cleanData];
 }
 
 
