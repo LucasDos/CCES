@@ -13,6 +13,9 @@ var filtersConfig = {
     clear_filter_text: 'Empty',
     auto_filter: {},
     alternate_rows: true,
+    rows_counter: {
+        text: 'Number of courses : '
+    },
     btn_reset: {
         tooltip: 'Empty filters',
         toolbar_position: 'right'
@@ -32,3 +35,5 @@ var filtersConfig = {
         types: ['string', 'string', 'string', 'string', 'numeric', 'numeric', 'none', 'none']
     }]
 };
+var tf = new TableFilter('courseTable', filtersConfig);
+tf.init();

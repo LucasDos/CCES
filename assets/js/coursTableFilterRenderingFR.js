@@ -13,6 +13,9 @@ var filtersConfig = {
     clear_filter_text: 'Vide',
     auto_filter: {},
     alternate_rows: true,
+    rows_counter: {
+        text: 'Nombre de cours : '
+    },
     btn_reset: {
         tooltip: 'Effacer les filtres',
         toolbar_position: 'right'
@@ -30,5 +33,7 @@ var filtersConfig = {
     extensions: [{
         name: 'sort',
         types: ['string', 'string', 'string', 'string', 'numeric', 'numeric', 'none', 'none']
-    }],
+    }]
 };
+var tf = new TableFilter('courseTable', filtersConfig);
+tf.init();
