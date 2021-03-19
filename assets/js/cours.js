@@ -1,48 +1,52 @@
 /** Load Data Course */
-window.onload = loadData("1");
+window.onload = getSessionLanguage().then(res => {
+    document.getElementById("language").value = res;
+    loadData("1", res);
+});
 
-// function init() {
-//     $.ajax({
-//         url: './functions/infosCourses.php',
-//         type: 'post',
-//         success: function (data) {
-//             let cours = parseInt(data);
-//
-//             // Nb Cours
-//             document.getElementById("nb-cours").innerHTML += cours;
-//
-//             // Nb Pages
-//             document.getElementById("nb-page").innerHTML = Math.ceil(cours/50);
-//
-//         }
-//     });
-//
-//     loadData("0");
-// }
+function getSessionLanguage() {
+    let lang = "";
+    return $.ajax({
+        url: './functions/getLanguage.php',
+        type: 'post'
+    });
+}
 
-function previousPage() {
-    let currentPage = document.getElementById("current-page").innerText;
+function getInputLanguage() {
+    return document.getElementById("language").value;
+}
+
+function previousPage(element) {
+    let currentPage = parseInt(element.innerText);
     currentPage--;
     if(currentPage > 0){
-        loadData(currentPage.toString());
+        loadData(currentPage.toString(), getInputLanguage());
     }
 
 }
 
-function nextPage() {
-    let currentPage = document.getElementById("current-page").innerText;
+function nextPage(element) {
+    let currentPage = parseInt(element.innerText);
+    let lang = getInputLanguage();
     currentPage++;
-    if(currentPage <= parseInt(document.getElementById("nb-page").innerText)){
-        loadData(currentPage.toString());
+    if(lang === "FR") {
+        if (currentPage <= parseInt(document.getElementById("nb-page").innerText)) {
+            loadData(currentPage.toString(), lang);
+        }
+    } else {
+        if (currentPage <= parseInt(document.getElementById("nb-pages").innerText)) {
+            loadData(currentPage.toString(), lang);
+        }
     }
-
 }
 
-function loadData(page){
+function loadData(page, language){
+    console.log(language);
     $.ajax({
         url: './functions/loadData.php',
         data: {
-            page : page
+            page : page,
+            language : language
         },
         type: 'post',
         success: function (data) {
@@ -50,18 +54,33 @@ function loadData(page){
             let nbCourses = parseInt(parsedData[0]);
             let tab = parsedData[1];
 
-            // Nb Cours
-            document.getElementById("nb-cours").innerHTML = nbCourses;
+            if(language === "FR") {
+                // Nb Cours
+                document.getElementById("nb-cours").innerHTML = nbCourses.toString();
 
-            // Nb Pages
-            document.getElementById("nb-page").innerHTML = Math.ceil(nbCourses/50);
+                // Nb Pages
+                document.getElementById("nb-page").innerHTML = Math.ceil(nbCourses / 50).toString();
 
-            // Load tab
-            document.getElementById("test").innerHTML = tab;
-            document.getElementById("current-page").innerHTML = page;
-            var tf = new TableFilter('test', filtersConfig);
-            tf.init();
+                // Load tab
+                document.getElementById("tabFR").innerHTML = tab;
+                document.getElementById("page-courante").innerHTML = page;
 
+                var tf = new TableFilter('tabFR', filtersConfig);
+                tf.init();
+            } else {
+                // Nb Cours
+                document.getElementById("nb-courses").innerHTML = nbCourses.toString();
+
+                // Nb Pages
+                document.getElementById("nb-pages").innerHTML = Math.ceil(nbCourses / 50).toString();
+
+                // Load tab
+                document.getElementById("tabEN").innerHTML = tab;
+                document.getElementById("current-page").innerHTML = page;
+
+                var tf = new TableFilter('tabEN', filtersConfig);
+                tf.init();
+            }
         }
     });
 }
