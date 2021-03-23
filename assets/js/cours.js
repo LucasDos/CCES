@@ -130,10 +130,6 @@ function setDisabledButtons() {
     });
 }
 
-function testFixRevert(){
-    console.log("test");
-}
-
 function startAnimation() {
     var element = document.getElementById('basket');
     element.classList.remove("animate");
