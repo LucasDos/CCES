@@ -4,6 +4,7 @@
     "homepage": "https://php-download.com/",
     "type": "project",
     "require": {
-        "phpoffice/phpspreadsheet": "^1.14.1.0"
+        "phpoffice/phpspreadsheet": "^1.14.1.0",
+      "ext-json": "*"
     }
 }
