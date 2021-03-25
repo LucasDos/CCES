@@ -51,8 +51,9 @@ array_map("unlink", glob("functions/uploads/CSV/*"));
 	<!-- Nav Menu: top -->
     <?php require_once("utils/header.php") ?>
 
-	<div style="float: right;">
+	<div style="float: right; display: flex; flex-direction: column; margin-right: 15px">
 		<p></p>
+		<a class="btn btn-primary btn-lg" role="button" onclick="downloadCSV()">Exporter en CSV<span class="glyphicon"></span></a> 
 		<a class="btn btn-primary btn-lg" role="button" onclick="clearFiles()">Supprimer tous les fichiers<span class="glyphicon"></span></a> 
 	</div>
 
