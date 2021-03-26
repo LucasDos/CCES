@@ -18,35 +18,40 @@ function exportCSV() {
 }
 
 function downloadCSV() {
-    exportCSV().then(res => {
-        formatData(res);
-        //define the heading for each row of the data
-        // var heads = "";
-        //
-        // var csv = 'Lucas, TEST DES TRUCS\n';
-        //
-        // //merge the data with CSV
-        // res.forEach(function(row) {
-        //     csv += row.join(';');
-        //     csv += "\n";
-        // });
-        //
-        // //display the created CSV data on the web browser
-        // document.write(csv);
-        //
-        // var hiddenElement = document.createElement('a');
-        // hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
-        // hiddenElement.target = '_blank';
-        //
-        // //provide the name for the CSV file to be downloaded
-        // hiddenElement.download = 'Famous Personalities.csv';
-        // hiddenElement.click();
-    })
+    return $.ajax({
+        url: '/CCES/MergedFile.csv',
+        type: 'POST',
+        success: function (data) {
+            // console.log(data);
+            let formmatedData = formatData(data);
+            var downloadLink = document.createElement("a");
+            var fileData = ['\ufeff' + formmatedData];
+
+            var blobObject = new Blob(fileData,{
+                type: "text/csv;charset=utf-8;"
+            });
+
+            var url = URL.createObjectURL(blobObject);
+            downloadLink.href = url;
+            downloadLink.download = "AllCourses.csv";
+
+            /*
+             * Actually download CSV
+             */
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+    });
 }
 
 function formatData(data) {
-    let formattedData = data.replace("[", "");
-    console.log(formattedData);
+    let removeSimpleQuote = data.replace(/'/g, "");
+    let removeDoubleQuote = removeSimpleQuote.replace(/"/g, "");
+    let removeEqual = removeDoubleQuote.replace(/-/g, "");
+    let changeBlank = removeEqual.replace(/;;/g, "; Aucunes informations...");
+
+    return changeBlank;
 }
 
 function file_explorer() {
