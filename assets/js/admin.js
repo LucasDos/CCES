@@ -4,49 +4,41 @@ function upload_file(e) {
     ajax_file_upload(e.dataTransfer.files);
 }
 
-function exportCSV() {
-    // $.ajax({
-    //     url: './MergedFile.csv',
-    //     dataType: 'text',
-    // }).done(successFunction);
-    return $.ajax({
-        url: 'functions/exportCSV.php',
-        type: 'GET',
-    });
-
-
-}
-
 function downloadCSV() {
-    exportCSV().then(res => {
-        formatData(res);
-        //define the heading for each row of the data
-        // var heads = "";
-        //
-        // var csv = 'Lucas, TEST DES TRUCS\n';
-        //
-        // //merge the data with CSV
-        // res.forEach(function(row) {
-        //     csv += row.join(';');
-        //     csv += "\n";
-        // });
-        //
-        // //display the created CSV data on the web browser
-        // document.write(csv);
-        //
-        // var hiddenElement = document.createElement('a');
-        // hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
-        // hiddenElement.target = '_blank';
-        //
-        // //provide the name for the CSV file to be downloaded
-        // hiddenElement.download = 'Famous Personalities.csv';
-        // hiddenElement.click();
-    })
+    return $.ajax({
+        url: '/CCES/MergedFile.csv',
+        type: 'GET',
+        success: function (data) {
+            let formmatedData = formatData(data);
+            var downloadLink = document.createElement("a");
+            var fileData = ['\ufeff' + formmatedData];
+
+            // UTF8 characters
+            var blobObject = new Blob(fileData,{
+                type: "text/csv;charset=utf-8;"
+            });
+
+            // Create the file to download
+            var url = URL.createObjectURL(blobObject);
+            downloadLink.href = url;
+            downloadLink.download = "AllCourses.csv";
+
+            // Download CSV
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+    });
 }
 
+/** Format the Data for download the CSV file */
 function formatData(data) {
-    let formattedData = data.replace("[", "");
-    console.log(formattedData);
+    let removeSimpleQuote = data.replace(/'/g, "");
+    let removeDoubleQuote = removeSimpleQuote.replace(/"/g, "");
+    let removeEqual = removeDoubleQuote.replace(/-/g, "");
+    let changeBlank = removeEqual.replace(/;;/g, "; Aucunes informations...");
+
+    return changeBlank;
 }
 
 function file_explorer() {
