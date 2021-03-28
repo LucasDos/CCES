@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/cours.css">
+    <link rel="stylesheet" href="./assets/css/modal.css">
     <link rel="stylesheet" href="./assets/css/sticky-footer.css">
     <link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
@@ -108,13 +109,99 @@
                                     $j++;
                                     echo "<input type='hidden' name='numberInformation' value='$j' />";
                                     echo "</form>";
-                                    echo "<td align=center>" . "<a href='#' onclick='document.getElementById(\"allInformation$i\").submit()'>" . "<img alt='detail-fr' title='détail' src='assets/images/loupe.png'/>" . "</a>" . "</td>";
-
+                                   
+                                    ?>
+                                    <td align=center> <a><img href="#modal<?php echo $i;?>" class="js-modal"  style="cursor: pointer;" src='assets/images/loupe.png'/></a></td>
+                                    <?php
                                     echo "<td align=center>" . "<button class='btn btn-primary btn-sm' id='$id' onclick=\"addCourse('$id','$line[6]','$line[7]','$line[8]','$line[23]','$line[1]','$line[3]');stopAnimation();startAnimation();\">+</button>" . "</td>";
                                     $id++;
                                 }
                                 echo "</tr>";
-
+                                ?>
+                                <!-- Modal -->
+                                <aside id="modal<?php echo $i;?>" class="modal"  role="dialog" aria-labelledby="title-modal" >
+                                    <div class="modal-wrapper js-modal-stop">
+                                        <button class="js-modal-close" style="float: right;"><img src='assets/images/close.svg'></button>
+                                        <h1 id="title-modal"><?php echo $line[8] ?></h1>
+                                        <!--<p><pre><?php print_r($line) ?></pre></p>-->
+                                        <div class="modalBody">
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Composante : </p>
+                                                <p><?php echo $line[1] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Filière : </p>
+                                                <p><?php echo $line[3] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Code ISCED : </p>
+                                                <p><?php echo $line[5] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Code Apogée : </p>
+                                                <p><?php echo $line[6] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <h5 class="modalLabel">Nombre de crédits ECTS : </h5>
+                                                <h5><?php echo $line[7] ?></h5>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Langue du cours (anglais, français,…) : </p>
+                                                <p><?php echo $line[10] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Descriptif : </p>
+                                                <p><?php echo $line[11] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Bibliographie : </p>
+                                                <p><?php echo $line[13] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Volume horaire total : </p>
+                                                <p><?php echo $line[14] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Volume horaire CM : </p>
+                                                <p><?php echo $line[15] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Volume horaire TD : </p>
+                                                <p><?php echo $line[16] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Volume horaire TP : </p>
+                                                <p><?php echo $line[17] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Enseignant référent (Prénom Nom) : </p>
+                                                <p><?php echo $line[18] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Enseignant référent (email ou contact) : </p>
+                                                <p><?php echo $line[19] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Mode d'évaluation : </p>
+                                                <p><?php echo $line[20] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Niveau : L1 / L2 / L3 / M1 / M2 : </p>
+                                                <p><?php echo $line[22] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Semestre 1 ou 2 : </p>
+                                                <p><?php echo $line[23] ?></p>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="modalBody">
+                                                 
+                                        </div>
+                                    </div>
+            
+                                </aside>
+                                <?php
                                 $i++;
                             }
                             fclose($handle);
@@ -126,6 +213,7 @@
         </div>
         <script type="text/javascript" src="./assets/tablefilter/tablefilter.js"></script>
         <script type="text/javascript" src="./assets/js/coursTableFilterRenderingFR.js"></script>
+        <script type="text/javascript" src="./assets/js/modal.js"></script>
     <?php } else { ?>
         <title>Search for a course</title>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -207,12 +295,100 @@
                                     $j++;
                                     echo "<input type='hidden' name='numberInformation' value='$j' />";
                                     echo "</form>";
-                                    echo "<td align=center>" . "<a href='#' onclick='document.getElementById(\"allInformation$i\").submit()'>" . "<img alt='detail-en' title='detail' src='assets/images/loupe.png'/>" . "</a>" . "</td>";
-
+                                    ?>
+                                    <td align=center> <a><img href="#modal<?php echo $i;?>" class="js-modal"  style="cursor: pointer;" src='assets/images/loupe.png'/></a></td>
+                                    <?php
                                     echo "<td align=center>" . "<button class='btn btn-primary btn-sm' id='$id' onclick=\"addCourse('$id','$line[6]','$line[7]','$line[9]','$line[23]','$line[2]','$line[4]');stopAnimation();startAnimation();\">+</button>" . "</td>";
                                     $id++;
                                 }
                                 echo "</tr>";
+
+
+                                ?>
+                                <!-- Modal -->
+                                <aside id="modal<?php echo $i;?>" class="modal"  role="dialog" aria-labelledby="title-modal" >
+                                    <div class="modal-wrapper js-modal-stop">
+                                        <button class="js-modal-close" style="float: right;"><img src='assets/images/close.svg'></button>
+                                        <h1 id="title-modal"><?php echo $line[8] ?></h1>
+                                        <!--<p><pre><?php print_r($line) ?></pre></p>-->
+                                        <div class="modalBody">
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Faculty : </p>
+                                                <p><?php echo $line[2] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Degree : </p>
+                                                <p><?php echo $line[4] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Field of studies ( ISCED ) : </p>
+                                                <p><?php echo $line[5] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Course code : </p>
+                                                <p><?php echo $line[6] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <h5 class="modalLabel">Credits : </h5>
+                                                <h5><?php echo $line[7] ?></h5>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Language of instruction : </p>
+                                                <p><?php echo $line[10] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Content : </p>
+                                                <p><?php echo $line[12] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Bibliography : </p>
+                                                <p><?php echo $line[13] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Hours (Total) : </p>
+                                                <p><?php echo $line[14] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Hours of lecture : </p>
+                                                <p><?php echo $line[15] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Hours of tutorials : </p>
+                                                <p><?php echo $line[16] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Hours of practice : </p>
+                                                <p><?php echo $line[17] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Coordinator : </p>
+                                                <p><?php echo $line[18] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">E-mail coordinator : </p>
+                                                <p><?php echo $line[19] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Type of evaluation : </p>
+                                                <p><?php echo $line[21] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Level: </p>
+                                                <p><?php echo $line[22] ?></p>
+                                            </div>
+                                            <div class="bodyContent">
+                                                <p class="modalLabel">Calendar Period : </p>
+                                                <p><?php echo $line[23] ?></p>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="modalBody">
+                                                 
+                                        </div>
+                                    </div>
+            
+                                </aside>
+                                <?php
 
                                 $i++;
                             }
@@ -225,6 +401,7 @@
         </div>
         <script type="text/javascript" src="./assets/tablefilter/tablefilter.js"></script>
         <script type="text/javascript" src="./assets/js/coursTableFilterRenderingEN.js"></script>
+        <script type="text/javascript" src="./assets/js/modal.js"></script>
     <?php } ?>
 </body>
 
