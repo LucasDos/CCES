@@ -2,7 +2,7 @@ var filtersConfig = {
     // instruct TableFilter location to import ressources from
     base_path: 'assets/tablefilter/',
     paging: {
-        results_per_page: ['    Cours par page: ', [10, 25, 50, 100]]
+        results_per_page: [' Cours par page: ', [10, 25, 50, 100]]
     },
     help_instructions: false,
     col_2: 'select',

@@ -44,8 +44,8 @@
         <?php if($currentPage == "Accueil" || $currentPage == "VisualisationMAJ" || $currentPage == "Cours" ) { ?>
             <li><a href="Depot.php"><span class="glyphicon glyphicon-cloud-upload"></span> Depot </a></li>
             <li><a href="Cours.php"> <span class="glyphicon glyphicon-search"></span> Cours </a></li>
-            <li><a href="?language=FR"><img alt="Français" title="Français" src="/CCES/utils/images/french-flag.svg" style="width: 20px;" onclick="changeFR()"></a></li>
-            <li><a href="?language=EN"><img alt="English" title="English" src="/CCES/utils/images/english-flag.svg" style="width: 20px;"></a></li>
+            <li><a href="?language=FR"><img alt="Français" title="Français" src="/CCES2/utils/images/french-flag.svg" style="width: 20px;" onclick="changeFR()"></a></li>
+            <li><a href="?language=EN"><img alt="English" title="English" src="/CCES2/utils/images/english-flag.svg" style="width: 20px;"></a></li>
         </ul>
 
             <?php if($currentPage == "Accueil") { ?>
@@ -125,8 +125,8 @@
 
                 <?php if($currentPage == "Accueil" || $currentPage == "VisualisationMAJ" || $currentPage == "Cours" ) { ?>
                 <li><a href="Cours.php"> <span class="glyphicon glyphicon-search"></span> Courses </a></li>
-                <li><a href="?language=FR"><img alt="Français" title="Français" src="/CCES/utils/images/french-flag.svg" style="width: 20px;"></a></li>
-                <li><a href="?language=EN"><img alt="English" title="English" src="/CCES/utils/images/english-flag.svg" style="width: 20px;"></a></li>
+                <li><a href="?language=FR"><img alt="Français" title="Français" src="/CCES2/utils/images/french-flag.svg" style="width: 20px;"></a></li>
+                <li><a href="?language=EN"><img alt="English" title="English" src="/CCES2/utils/images/english-flag.svg" style="width: 20px;"></a></li>
             </ul>
 
             <?php if($currentPage == "Accueil") { ?>

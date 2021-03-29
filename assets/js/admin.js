@@ -6,7 +6,7 @@ function upload_file(e) {
 
 function downloadCSV() {
     return $.ajax({
-        url: '/CCES/MergedFile.csv',
+        url: './MergedFile.csv',
         type: 'GET',
         success: function (res) {
             let formmatedData = removeBadChars(res);
