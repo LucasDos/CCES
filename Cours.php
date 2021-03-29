@@ -122,8 +122,8 @@
                                 <aside id="modal<?php echo $i;?>" class="modal"  role="dialog" aria-labelledby="title-modal" >
                                     <div class="modal-wrapper js-modal-stop">
                                         <button class="js-modal-close" style="float: right;"><img src='assets/images/close.svg'></button>
-                                        <h1 id="title-modal"><?php echo $line[8] ?></h1>
-                                        <!--<p><pre><?php print_r($line) ?></pre></p>-->
+                                        <h1 class="title-modal"><?php echo $line[8] ?></h1>
+                                        
                                         <div class="modalBody">
                                             <div class="bodyContent">
                                                 <p class="modalLabel">Composante : </p>

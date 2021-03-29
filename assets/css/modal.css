@@ -3,7 +3,7 @@ body, html {
   padding: 0;
 }
 
-*{ box-sizing: border-box;}
+*{ box-sizing: border-box; }
 
 .modal{
     position: fixed;
@@ -19,16 +19,15 @@ body, html {
 
 .modal-wrapper {
     overflow: auto;    
-    width: 600px;
+    width: 70%;
     max-width: calc(100vw - 20px);
     max-height: calc(100vh - 20px);
     padding: 20px;
     background: #fff;
+    border-radius: 15px;
 }
 
-.js-modal-close {
-  
-}
+
 
 .modalBody{
   display: block;
@@ -43,7 +42,13 @@ body, html {
 .modalLabel{
   margin-right: 5px !important;
   width: 40%;
-  min-width: 25%;
+  min-width: 40%;
+}
+
+
+.title-modal{
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 
