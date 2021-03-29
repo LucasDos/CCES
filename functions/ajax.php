@@ -22,6 +22,7 @@ function convertExcelToCSV($fileName)
 
 session_start();
 
+/** Checks if the files are in the good format */
 $clearFiles = "";
 if (isset($_SESSION["depositPage"]) && !$_SESSION["depositPage"] && isset($_SESSION["errors"]) && $_SESSION["errors"] && glob("uploads/Excel/*") && glob("uploads/CSV/*"))
     $clearFiles = " Certains des fichiers testés auparavant comportaient des erreurs. Tous les fichiers testés auparavant ont été supprimés.<br /><br />";
@@ -55,6 +56,7 @@ foreach ($_FILES['file']['name'] as $key => $val) {
         $wrongFileExtension = " Certains fichiers qui n'étaient pas des fichiers Excel n'ont pas été pris en compte.<br /><br />";
 }
 
+/** Convert XLSX to CSV format */
 foreach (glob("uploads/Excel/*.xlsx") as $file) {
     convertExcelToCSV($file);
     array_push($files, basename($file));
@@ -69,6 +71,7 @@ $columnHeaders = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L
 $errors = "";
 $warning = "";
 
+/** Save file in MergedCSV */
 foreach (glob("uploads/CSV/*.csv") as $file) {
     if ($handle = fopen($file, "r")) {
         $courseCodes = array();
