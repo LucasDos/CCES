@@ -61,6 +61,15 @@
 
                         if ($handle = fopen($fileName, "r")) {
                             $data = fgetcsv($handle);
+                            if(empty($data)) {
+                                echo "<div class='alert alert-danger' style='padding: 50px; margin: 50px 50px; text-align: center; border-radius: 15px;'>
+                                        <p>Aucun cours n'est actuellement disponible</p>
+                                        <p>Consultez <a>https://www.univ-tours.fr/formations/offre-de-formation</a></p>
+                                        <p>Contactez Frédéric Soreau : incoming.mobility@univ-tours.fr</p>
+                                        </div>";
+                                return;
+                            }
+
                             $line = explode("';'", $data[0]);
                             echo "<th>" . $line[6] . "</th>";
                             echo "<th>" . "Intitulé du cours" . "</th>";
