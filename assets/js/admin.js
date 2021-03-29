@@ -8,8 +8,8 @@ function downloadCSV() {
     return $.ajax({
         url: '/CCES/MergedFile.csv',
         type: 'GET',
-        success: function (data) {
-            let formmatedData = formatData(data);
+        success: function (res) {
+            let formmatedData = removeBadChars(res);
             var downloadLink = document.createElement("a");
             var fileData = ['\ufeff' + formmatedData];
 
@@ -21,7 +21,7 @@ function downloadCSV() {
             // Create the file to download
             var url = URL.createObjectURL(blobObject);
             downloadLink.href = url;
-            downloadLink.download = "AllCourses.csv";
+            downloadLink.download = "CCES.csv";
 
             // Download CSV
             document.body.appendChild(downloadLink);
@@ -31,16 +31,16 @@ function downloadCSV() {
     });
 }
 
-/** Format the Data for download the CSV file */
-function formatData(data) {
+function removeBadChars(data) {
     let removeSimpleQuote = data.replace(/'/g, "");
     let removeDoubleQuote = removeSimpleQuote.replace(/"/g, "");
-    let removeEqual = removeDoubleQuote.replace(/-/g, "");
-    let changeBlank = removeEqual.replace(/;;/g, "; Aucunes informations...");
+    let removeHyphen = removeDoubleQuote.replace(/-/g, "");
+    let changeBlank = removeHyphen.replace(/;;/g, "; Aucunes informations...");
 
     return changeBlank;
 }
 
+/** Upload CSV file */
 function file_explorer() {
     document.getElementById('selectfile').click();
     document.getElementById('selectfile').onchange = function () {
@@ -55,7 +55,9 @@ function ajax_file_upload(file_obj) {
         var form_data = new FormData();
         for (i = 0; i < file_obj.length; i++) {
             form_data.append('file[]', file_obj[i]);
+            console.log(file_obj[i]);
         }
+
         $.ajax({
             type: 'POST',
             url: 'functions/ajax.php',

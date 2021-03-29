@@ -133,7 +133,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 							$j++;
 							echo "<input type='hidden' name='numberInformation' value='$j' />";
 							echo "</form>";
-							echo "<td>" . "<a href='#' onclick='document.getElementById(\"allInformation$i\").submit()'>" . "<img src='assets/images/afficher.png'/>" . "</a>" . "</td>";
+							echo "<td>" . "<a href='#' onclick='document.getElementById(\"allInformation$i\").submit()'>" . "<img src='assets/images/loupe.png'/>" . "</a>" . "</td>";
 
 							echo "</tr>";
 

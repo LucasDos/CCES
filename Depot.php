@@ -56,7 +56,7 @@ array_map("unlink", glob("functions/uploads/CSV/*"));
             <span> Exporter en CSV </span>
         </a> 
 		<a class="btn btn-primary btn-lg" role="button" onclick="clearFiles()">
-            <span> Supprimer tous les fichiers </span>
+            <span> Retirer les fichiers déposés </span>
         </a> 
 	</div>
 
