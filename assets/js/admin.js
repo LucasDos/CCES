@@ -55,12 +55,11 @@ function ajax_file_upload(file_obj) {
         var form_data = new FormData();
         for (i = 0; i < file_obj.length; i++) {
             form_data.append('file[]', file_obj[i]);
-            console.log(file_obj[i]);
         }
 
         $.ajax({
             type: 'POST',
-            url: 'functions/ajax.php',
+            url: './functions/ajax.php',
             contentType: false,
             processData: false,
             data: form_data,
