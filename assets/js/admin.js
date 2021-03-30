@@ -60,7 +60,7 @@ function ajax_file_upload(file_obj) {
 
         $.ajax({
             type: 'POST',
-            url: './functions/ajax.php',
+            url: 'functions/ajax.php',
             contentType: false,
             processData: false,
             data: form_data,
@@ -75,7 +75,7 @@ function ajax_file_upload(file_obj) {
 function clearFiles() {
     $.ajax({
         type: 'POST',
-        url: './functions/ClearFiles.php',
+        url: 'functions/ClearFiles.php',
         contentType: false,
         processData: false,
         success: function () {
@@ -87,7 +87,7 @@ function clearFiles() {
 function mergeCSV() {
     $.ajax({
         type: 'POST',
-        url: './functions/MergeCSV.php',
+        url: 'functions/MergeCSV.php',
         contentType: false,
         processData: false
     });
@@ -96,7 +96,7 @@ function mergeCSV() {
 function moveMergedFile() {
     $.ajax({
         type: 'POST',
-        url: './functions/MoveMergedFile.php',
+        url: 'functions/MoveMergedFile.php',
         contentType: false,
         processData: false
     });
